@@ -79,16 +79,19 @@
 
 
 
-<meta name="description" content="任佳磊的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://github.com/rjl06181114/renjialei.github.io.git/index.html">
+<meta name="description" content="函数作用域调用函数时创建函数作用域，函数执行完毕后，函数作用域销毁。 每调用一次函数就会创建一个函数作用域，他们之间相互独立。 使用var关键字声明提前，在函数作用域里面不用var关键字，局部变量变为全局变量。 定义形参的过程就相当于在函数作用域中声明了一个变量。 [[scope]]这个属性是我们访问不到，称作是作用域。[[scope]]中所存储的是执行期上下文的集合，这种集合我们称作是作用域链。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js作用域以及闭包">
+<meta property="og:url" content="https://github.com/rjl06181114/renjialei.github.io.git/2019/06/21/js作用域以及闭包/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="任佳磊的博客">
+<meta property="og:description" content="函数作用域调用函数时创建函数作用域，函数执行完毕后，函数作用域销毁。 每调用一次函数就会创建一个函数作用域，他们之间相互独立。 使用var关键字声明提前，在函数作用域里面不用var关键字，局部变量变为全局变量。 定义形参的过程就相当于在函数作用域中声明了一个变量。 [[scope]]这个属性是我们访问不到，称作是作用域。[[scope]]中所存储的是执行期上下文的集合，这种集合我们称作是作用域链。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019051918413145.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzODE3OTcy,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-06-21T08:45:44.286Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="任佳磊的博客">
+<meta name="twitter:title" content="js作用域以及闭包">
+<meta name="twitter:description" content="函数作用域调用函数时创建函数作用域，函数执行完毕后，函数作用域销毁。 每调用一次函数就会创建一个函数作用域，他们之间相互独立。 使用var关键字声明提前，在函数作用域里面不用var关键字，局部变量变为全局变量。 定义形参的过程就相当于在函数作用域中声明了一个变量。 [[scope]]这个属性是我们访问不到，称作是作用域。[[scope]]中所存储的是执行期上下文的集合，这种集合我们称作是作用域链。">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019051918413145.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzODE3OTcy,size_16,color_FFFFFF,t_70">
 
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/rjl06181114/renjialei.github.io.git/">
+  <link rel="canonical" href="https://github.com/rjl06181114/renjialei.github.io.git/2019/06/21/js作用域以及闭包/">
 
 
 
 
 
-  <title>Hexo</title>
+  <title>js作用域以及闭包 | Hexo</title>
   
 
 
@@ -143,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -217,9 +219,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -249,9 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/21/js作用域以及闭包/" itemprop="url">js作用域以及闭包</a></h1>
+          <h1 class="post-title" itemprop="name headline">js作用域以及闭包</h1>
         
 
         <div class="post-meta">
@@ -301,9 +301,7 @@
       
 
       
-        
-          
-            <h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>调用函数时创建函数作用域，函数执行完毕后，函数作用域<strong>销毁</strong>。</p>
+        <h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>调用函数时创建函数作用域，函数执行完毕后，函数作用域<strong>销毁</strong>。</p>
 <p>每调用一次函数就会创建一个函数作用域，他们之间相互独立。</p>
 <p>使用var关键字<strong>声明提前</strong>，在函数作用域里面不用var关键字，局部变量变为全局变量。</p>
 <p>定义形参的过程就相当于在函数作用域中声明了一个变量。</p>
@@ -316,8 +314,6 @@
 <p>上面这段函数是闭包的缓存应用。以返回对象形式返回了两个函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> a=[];</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">          &#123;</span><br><span class="line">              a[i]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)                  // 将该<span class="title">for</span>循环代码变为    (<span class="params">function(j</span>)</span>&#123;           </span><br><span class="line">              &#123;                                <span class="comment">//                        a[j]=function() </span></span><br><span class="line">                <span class="built_in">document</span>.write(i+<span class="string">"  "</span>);        <span class="comment">//                     &#123;</span></span><br><span class="line">              &#125;                               <span class="comment">//                     document.write(j+"  ");</span></span><br><span class="line">          &#125;                                   <span class="comment">//                      &#125;</span></span><br><span class="line">          <span class="keyword">return</span> a;                            <span class="comment">//                &#125;(i));//用立即执行函数解决了闭包问题。先行执行</span></span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">var</span> myarr=test();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;<span class="number">10</span>;j++)</span><br><span class="line">          &#123;</span><br><span class="line">            myarr[j]();</span><br><span class="line">          &#125;</span><br></pre></td></tr></table></figure></p>
 <p>上面这段函数将子函数全都保存在数组a中，然后将子函数以函数组的形式抛出，但这些子函数依旧与test函数形成了10对一的闭包。继承了test中i的值，所以输出结果为<code>10 10 10 10 10 10 10 10 10 10</code></p>
 
-          
-        
       
     </div>
     
@@ -334,152 +330,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/rjl06181114/renjialei.github.io.git/2019/05/14/js数据类型以及关键字/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="任佳磊">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/个人.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/14/js数据类型以及关键字/" itemprop="url">js数据类型以及关键字</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-14T13:07:31+08:00">
-                2019-05-14
-              </time>
+              <a href="/2019/05/14/js数据类型以及关键字/" rel="next" title="js数据类型以及关键字">
+                <i class="fa fa-chevron-left"></i> js数据类型以及关键字
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h3 id="关键字var的用法"><a href="#关键字var的用法" class="headerlink" title="关键字var的用法"></a>关键字var的用法</h3><p>var操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，如果在函数中使用var定义一个变量，退出函数将会自动销毁。<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span>  message=<span class="string">"hi"</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">         test();</span><br><span class="line">         alert(message);</span><br></pre></td></tr></table></figure></p>
-<p> 上面的这段代码将会在浏览器中报错，未定义！<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">              message=<span class="string">"hi"</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">        test();</span><br><span class="line">        alert(message);</span><br></pre></td></tr></table></figure></p>
-<p> 这段代码将会正常，因为此时的message已经是全局变量。</p>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><strong>Bolean类型</strong><br>该类型有两个字面量：true和falese。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message=<span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">var</span> boolean=<span class="built_in">Boolean</span>(message);</span><br><span class="line">alert(boolean);</span><br></pre></td></tr></table></figure></p>
-<p>上面这段代码牵扯到类型转换，将字符串转换为布尔值true.关于转换，总结了以下规律。<br>|数据类型     |转换为true的值|转换为false的值|<br>|———|———|———-|<br>|Boolean  |true     |false     |<br>|string   |任何非空字符串  |“”空字符串    |<br>|Number   |任何非零数值   |0和NaN     |<br>|object   |任何对象     |null      |<br>|undefined|n/a      |undefined |<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message=<span class="string">"hello"</span>;</span><br><span class="line">        <span class="keyword">if</span>(message)&#123;</span><br><span class="line">            alert(<span class="string">"true"</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面这段代码牵扯到自动转换为布尔值。</p>
-<p><strong>Number类型</strong></p>
-<p>Number中infinity为无穷大，typeof（）测试出来仍然是number类型。<br>NaN表示不是一个数字，测试出来仍然是一个数字类型。</p>
-<p>强制类型转换<br>方式1<br>调用Number()函数,总结了转换规则如下</p>
-<blockquote>
-<p>1   如果是boolean值，true转换为1，false转换为0.<br>2   如果是数字值，只是简单的传入传出。<br>3 undefined返回NaN.<br>4 如果是字符串，只包含数字，则将其转换。<br>其他进制的转换为10进制，<br>如果是空的，则转换为0，<br>如果是其他格式，转换为nan；</p>
-</blockquote>
-<p>方式2<br>调用parseInt(）函数或者parseInt(），这种方式专门解决字符串中的数字。从左向右依此寻找不为数字的其他类型的数据，不过这种方式有种和上面不一样，就是先将参数转换为字符串，在将其按照这种方式进行转换。比如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">var</span>  a=<span class="literal">true</span>;</span><br><span class="line"> a=<span class="built_in">parseFloat</span>(a);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure></p>
-<p>上面的结果是nan，因为先将其转换为字符串，最后结果就是nan。</p>
-<p><strong>Null类型</strong><br>该类型的值只有一个，就是null，表示一个空对象，使用typeof（）测试出结果仍然是object。</p>
-<p><strong>Undefined类型</strong><br>该类型的值只有一个，undefined。未定义，比如定义一个变量，但未给其赋值，返回值是undefined。</p>
-<p><strong>string类型</strong><br>直接进入强制转换部分。</p>
-<p>第一种，调用tostring()方法，<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span>  a=<span class="number">123</span>;</span><br><span class="line"> a= a.toString();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a));</span><br></pre></td></tr></table></figure></p>
-<p>在此需要注意的是转换后对原来的数据没有影响，我们在这里覆盖了原来啊的值。该方法对Null和undefined并不适用。</p>
-<p>第二种是使用string（）函数 ，将转换的数据作为参数传递给函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span>  a=<span class="literal">undefined</span>;</span><br><span class="line"> a=<span class="built_in">String</span>(a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a));</span><br></pre></td></tr></table></figure></p>
-<p>注意上面大写首字母，将null直接转换为“null”。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -489,10 +361,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -500,6 +373,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -520,8 +397,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -565,6 +451,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域"><span class="nav-number">1.</span> <span class="nav-text">函数作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js中没有块级作用域"><span class="nav-number">2.</span> <span class="nav-text">js中没有块级作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">3.</span> <span class="nav-text">闭包</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -698,6 +600,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
