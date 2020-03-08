@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang>
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -81,13 +81,13 @@
 
 <meta name="description" content="任佳磊的博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="前端小牛">
 <meta property="og:url" content="https://github.com/rjl06181114/renjialei.github.io.git/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="前端小牛">
 <meta property="og:description" content="任佳磊的博客">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="前端小牛">
 <meta name="twitter:description" content="任佳磊的博客">
 
 
@@ -104,7 +104,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -124,7 +124,7 @@
 
 
 
-  <title>Hexo</title>
+  <title>前端小牛</title>
   
 
 
@@ -136,7 +136,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -155,7 +155,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">前端小牛</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -185,7 +185,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -195,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -232,6 +252,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/rjl06181114/renjialei.github.io.git/2020/03/08/vue生命周期/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="任佳磊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/个人.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端小牛">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/08/vue生命周期/" itemprop="url">vue生命周期</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T15:29:26+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="什么叫做vue生命周期"><a href="#什么叫做vue生命周期" class="headerlink" title="什么叫做vue生命周期"></a>什么叫做vue生命周期</h3><p>每个Vue实例在被创建之前都要经过一系列的初始化过程,这个过程就是我们说的vue的生命周期！</p>
+<h3 id="生命周期钩子的介绍"><a href="#生命周期钩子的介绍" class="headerlink" title="生命周期钩子的介绍"></a>生命周期钩子的介绍</h3><p>在vue一整个的生命周期中会有很多钩子函数提供给我们在vue生命周期不同的时刻进行操作, 底下这张图片是vue官方文档给出的一副有关生命周期中钩子函数的先后顺序图！所有的钩子函数会将this上下文绑定到vue实例中，所以可以访问数据！这也就意味着不能使用箭头函数定义一个钩子函数的方法！<br> <img src="https://img-blog.csdnimg.cn/20191026163638477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzODE3OTcy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这段代码是我在自己电脑上做的有关钩子函数执行先后顺序的一个实验，旁边也有着有关的注释！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> App = &#123;</span><br><span class="line">          template: <span class="string">`&lt;div&gt;</span></span><br><span class="line"><span class="string">           我是子组件</span></span><br><span class="line"><span class="string">          &lt;/div&gt;`</span>,</span><br><span class="line"></span><br><span class="line">          beforeDestroy: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">'beforeDstroy'</span>);</span><br><span class="line">          &#125;,</span><br><span class="line">          destroyed: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">'Dstroyed'</span>);</span><br><span class="line">          &#125;,</span><br><span class="line">          activated: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">'组件被激活了'</span>)</span><br><span class="line">          &#125;,</span><br><span class="line">          deactivated: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">'组件被停用'</span>)</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">          el: <span class="string">'.s'</span>,</span><br><span class="line">          components: &#123;</span><br><span class="line">              app: App</span><br><span class="line">          &#125;,</span><br><span class="line">          data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">              <span class="keyword">return</span> &#123;</span><br><span class="line">                  title: <span class="string">'renjialeishiwoge'</span>,</span><br><span class="line">                  isExist: <span class="literal">true</span></span><br><span class="line">              &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="comment">//在这里我们可以得出结论，只要局部组件在父组件中引入，其引入的数据为父组件中的数据！</span></span><br><span class="line">          <span class="comment">//对于项目中不停的使用v-if添加和删除的组件我们可以通过&lt;keep-alive&gt;&lt;/keep-alive&gt;将其包裹起来，激活和停用，提高整体的效率！</span></span><br><span class="line">          template: <span class="string">`&lt;div&gt;</span></span><br><span class="line"><span class="string">          &lt;keep-alive&gt;</span></span><br><span class="line"><span class="string">         &lt;app v-if="isExist"&gt;&lt;/app&gt;</span></span><br><span class="line"><span class="string">         &lt;/keep-alive&gt;</span></span><br><span class="line"><span class="string">          &lt;button @click='destroy()'&gt;事关子组件的生死&lt;/button&gt;</span></span><br><span class="line"><span class="string">          &#123;&#123;title&#125;&#125;</span></span><br><span class="line"><span class="string">          &lt;button @click='change()'&gt;改变元素&lt;/button&gt;</span></span><br><span class="line"><span class="string">         &lt;/div&gt;</span></span><br><span class="line"><span class="string">          `</span>,</span><br><span class="line">          methods: &#123;</span><br><span class="line">              change: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                  <span class="keyword">this</span>.title = <span class="string">'woshinibaba'</span></span><br><span class="line">              &#125;,</span><br><span class="line">              destroy: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                  <span class="keyword">this</span>.isExist = !<span class="keyword">this</span>.isExist;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="comment">//组件创建之前触发</span></span><br><span class="line">          <span class="comment">/*  beforeCreate: function() &#123;</span></span><br><span class="line"><span class="comment">               console.log(this.title);</span></span><br><span class="line"><span class="comment">           &#125;, */</span></span><br><span class="line">          <span class="comment">//组件创建之后，并且可以在这里更改数据，实现vue-&gt;页面的更新</span></span><br><span class="line">          <span class="comment">/*  created: function() &#123;</span></span><br><span class="line"><span class="comment">               console.log(this.title);</span></span><br><span class="line"><span class="comment">               this.title = 'woyijinggaibianl';</span></span><br><span class="line"><span class="comment">           &#125;, */</span></span><br><span class="line">          <span class="comment">//vue中数据装载之前，执行</span></span><br><span class="line">          <span class="comment">/*  beforeMount: function() &#123;</span></span><br><span class="line"><span class="comment">               console.log(document.body.innerHTML);</span></span><br><span class="line"><span class="comment">           &#125;, */</span></span><br><span class="line">          <span class="comment">//数据装载之后执行</span></span><br><span class="line">          <span class="comment">/*  mounted: function() &#123;</span></span><br><span class="line"><span class="comment">               console.log(document.body.innerHTML);</span></span><br><span class="line"><span class="comment">           &#125;,</span></span><br><span class="line"><span class="comment">           beforeUpdate: function() &#123;</span></span><br><span class="line"><span class="comment">               console.log(document.body.innerHTML);</span></span><br><span class="line"><span class="comment">           &#125;, */</span></span><br><span class="line">          <span class="comment">/*    beforeUpdate: function() &#123;</span></span><br><span class="line"><span class="comment">                 console.log(document.body.innerHTML);</span></span><br><span class="line"><span class="comment">             &#125;,</span></span><br><span class="line"><span class="comment">             updated: function() &#123;</span></span><br><span class="line"><span class="comment">                 console.log(document.body.innerHTML);</span></span><br><span class="line"><span class="comment">             &#125; */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/rjl06181114/renjialei.github.io.git/2019/06/21/js作用域以及闭包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -241,7 +382,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="前端小牛">
     </span>
 
     
@@ -261,9 +402,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-21T16:45:17+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-21T16:45:17+08:00">
                 2019-06-21
               </time>
             
@@ -273,6 +414,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js目录/" itemprop="url" rel="index">
+                    <span itemprop="name">js目录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -372,7 +535,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="前端小牛">
     </span>
 
     
@@ -392,9 +555,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-14T13:07:31+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-14T13:07:31+08:00">
                 2019-05-14
               </time>
             
@@ -404,6 +567,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js目录/" itemprop="url" rel="index">
+                    <span itemprop="name">js目录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -538,14 +723,32 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -579,7 +782,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -589,7 +792,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -597,7 +800,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
