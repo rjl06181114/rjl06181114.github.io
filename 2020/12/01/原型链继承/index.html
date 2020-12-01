@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="关键字var的用法var操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，如果在函数中使用var定义一个变量，退出函数将会自动销毁。 12345function test()&amp;#123;            var  message=&quot;hi&quot;;                    &amp;#125;         test();         alert(message);  上面">
+<meta name="description" content="在原型链跌了好几次跟头，今天将其归类稍加总结一下。在js中，对象都有proto属性，一般这个是被称为隐式的原型，该隐式原型指向构造该对象的构造函数的原型。在js中，一切皆对象，对象则可通过构造函数和字面量的形式生成。 首先我们要扒一扒proto、prototype、constructor __proto__：事实上就是原型链指针！真正指向了祖先级对象。 prototype：这个是指向构造函数的原型">
 <meta name="keywords" content="js目录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js数据类型以及关键字">
-<meta property="og:url" content="https://github.com/rjl06181114/renjialei.github.io.git/2019/05/14/js数据类型以及关键字/index.html">
+<meta property="og:title" content="原型链继承">
+<meta property="og:url" content="https://github.com/rjl06181114/renjialei.github.io.git/2020/12/01/原型链继承/index.html">
 <meta property="og:site_name" content="前端小牛">
-<meta property="og:description" content="关键字var的用法var操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，如果在函数中使用var定义一个变量，退出函数将会自动销毁。 12345function test()&amp;#123;            var  message=&quot;hi&quot;;                    &amp;#125;         test();         alert(message);  上面">
+<meta property="og:description" content="在原型链跌了好几次跟头，今天将其归类稍加总结一下。在js中，对象都有proto属性，一般这个是被称为隐式的原型，该隐式原型指向构造该对象的构造函数的原型。在js中，一切皆对象，对象则可通过构造函数和字面量的形式生成。 首先我们要扒一扒proto、prototype、constructor __proto__：事实上就是原型链指针！真正指向了祖先级对象。 prototype：这个是指向构造函数的原型">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-08T07:22:27.625Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/f45df352c728a638cf41bf50673d0a0a.png#pic_center">
+<meta property="og:updated_time" content="2020-12-01T15:00:00.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js数据类型以及关键字">
-<meta name="twitter:description" content="关键字var的用法var操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，如果在函数中使用var定义一个变量，退出函数将会自动销毁。 12345function test()&amp;#123;            var  message=&quot;hi&quot;;                    &amp;#125;         test();         alert(message);  上面">
+<meta name="twitter:title" content="原型链继承">
+<meta name="twitter:description" content="在原型链跌了好几次跟头，今天将其归类稍加总结一下。在js中，对象都有proto属性，一般这个是被称为隐式的原型，该隐式原型指向构造该对象的构造函数的原型。在js中，一切皆对象，对象则可通过构造函数和字面量的形式生成。 首先我们要扒一扒proto、prototype、constructor __proto__：事实上就是原型链指针！真正指向了祖先级对象。 prototype：这个是指向构造函数的原型">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/f45df352c728a638cf41bf50673d0a0a.png#pic_center">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/rjl06181114/renjialei.github.io.git/2019/05/14/js数据类型以及关键字/">
+  <link rel="canonical" href="https://github.com/rjl06181114/renjialei.github.io.git/2020/12/01/原型链继承/">
 
 
 
 
 
-  <title>js数据类型以及关键字 | 前端小牛</title>
+  <title>原型链继承 | 前端小牛</title>
   
 
 
@@ -253,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/rjl06181114/renjialei.github.io.git/2019/05/14/js数据类型以及关键字/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/rjl06181114/renjialei.github.io.git/2020/12/01/原型链继承/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="磊哥">
@@ -270,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js数据类型以及关键字</h1>
+          <h1 class="post-title" itemprop="name headline">原型链继承</h1>
         
 
         <div class="post-meta">
@@ -282,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-14T13:07:31+08:00">
-                2019-05-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-01T22:55:28+08:00">
+                2020-12-01
               </time>
             
 
@@ -342,27 +344,19 @@
       
 
       
-        <h3 id="关键字var的用法"><a href="#关键字var的用法" class="headerlink" title="关键字var的用法"></a>关键字var的用法</h3><p>var操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，如果在函数中使用var定义一个变量，退出函数将会自动销毁。<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span>  message=<span class="string">"hi"</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">         test();</span><br><span class="line">         alert(message);</span><br></pre></td></tr></table></figure></p>
-<p> 上面的这段代码将会在浏览器中报错，未定义！<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">              message=<span class="string">"hi"</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">        test();</span><br><span class="line">        alert(message);</span><br></pre></td></tr></table></figure></p>
-<p> 这段代码将会正常，因为此时的message已经是全局变量。</p>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><strong>Bolean类型</strong><br>该类型有两个字面量：true和falese。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message=<span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">var</span> boolean=<span class="built_in">Boolean</span>(message);</span><br><span class="line">alert(boolean);</span><br></pre></td></tr></table></figure></p>
-<p>上面这段代码牵扯到类型转换，将字符串转换为布尔值true.关于转换，总结了以下规律。<br>|数据类型     |转换为true的值|转换为false的值|<br>|———|———|———-|<br>|Boolean  |true     |false     |<br>|string   |任何非空字符串  |“”空字符串    |<br>|Number   |任何非零数值   |0和NaN     |<br>|object   |任何对象     |null      |<br>|undefined|n/a      |undefined |<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message=<span class="string">"hello"</span>;</span><br><span class="line">        <span class="keyword">if</span>(message)&#123;</span><br><span class="line">            alert(<span class="string">"true"</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面这段代码牵扯到自动转换为布尔值。</p>
-<p><strong>Number类型</strong></p>
-<p>Number中infinity为无穷大，typeof（）测试出来仍然是number类型。<br>NaN表示不是一个数字，测试出来仍然是一个数字类型。</p>
-<p>强制类型转换<br>方式1<br>调用Number()函数,总结了转换规则如下</p>
-<blockquote>
-<p>1   如果是boolean值，true转换为1，false转换为0.<br>2   如果是数字值，只是简单的传入传出。<br>3 undefined返回NaN.<br>4 如果是字符串，只包含数字，则将其转换。<br>其他进制的转换为10进制，<br>如果是空的，则转换为0，<br>如果是其他格式，转换为nan；</p>
-</blockquote>
-<p>方式2<br>调用parseInt(）函数或者parseInt(），这种方式专门解决字符串中的数字。从左向右依此寻找不为数字的其他类型的数据，不过这种方式有种和上面不一样，就是先将参数转换为字符串，在将其按照这种方式进行转换。比如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">var</span>  a=<span class="literal">true</span>;</span><br><span class="line"> a=<span class="built_in">parseFloat</span>(a);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure></p>
-<p>上面的结果是nan，因为先将其转换为字符串，最后结果就是nan。</p>
-<p><strong>Null类型</strong><br>该类型的值只有一个，就是null，表示一个空对象，使用typeof（）测试出结果仍然是object。</p>
-<p><strong>Undefined类型</strong><br>该类型的值只有一个，undefined。未定义，比如定义一个变量，但未给其赋值，返回值是undefined。</p>
-<p><strong>string类型</strong><br>直接进入强制转换部分。</p>
-<p>第一种，调用tostring()方法，<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span>  a=<span class="number">123</span>;</span><br><span class="line"> a= a.toString();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a));</span><br></pre></td></tr></table></figure></p>
-<p>在此需要注意的是转换后对原来的数据没有影响，我们在这里覆盖了原来啊的值。该方法对Null和undefined并不适用。</p>
-<p>第二种是使用string（）函数 ，将转换的数据作为参数传递给函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span>  a=<span class="literal">undefined</span>;</span><br><span class="line"> a=<span class="built_in">String</span>(a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a));</span><br></pre></td></tr></table></figure></p>
-<p>注意上面大写首字母，将null直接转换为“null”。</p>
+        <p>在原型链跌了好几次跟头，今天将其归类稍加总结一下。在js中，对象都有<strong>proto</strong>属性，一般这个是被称为隐式的原型，该隐式原型指向构造该对象的构造函数的原型。在js中，一切皆对象，对象则可通过构造函数和字面量的形式生成。</p>
+<p>首先我们要扒一扒<strong>proto、prototype、constructor</strong></p>
+<p><code>__proto__</code>：事实上就是原型链指针！真正指向了祖先级对象。</p>
+<p><code>prototype</code>：这个是指向构造函数的原型对象,其实原型对象就只是个普通对象，里面存放着所有实例对象需要共享的属性和方法！</p>
+<p><code>constructor</code>：每一个原型对象都包含一个指向构造函数的指针，就是constructor</p>
+<p>在这里有一个小技巧帮助我们判断，当求一个对象<strong>proto</strong>是谁的时候，我们首先要想他是那个构造函数new出来的，它指向的就是此构造函数的prototype原型对象。还有就是哪个构造函数要求prototype，比如<code>Array.prototype</code>是等于<code>[].__proto__</code>的，还有就是函数也是<code>new Function()</code>出来的对象。</p>
+<p>下面这个图可以帮助我们很好的理解原型链的整个知识点<br><img src="https://img-blog.csdnimg.cn/img_convert/f45df352c728a638cf41bf50673d0a0a.png#pic_center" alt="原型链路图"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Foo.__proto__因为是通过new Function()创建，所以指向Function.prototype</span></span><br><span class="line"><span class="comment">// Foo.prototype指向自己的原型对象，和foo.__proto__相同</span></span><br><span class="line"><span class="comment">// Object,Array,Function都是通过Function构造函数new出来的，所以其__proto__指向Function.prototype</span></span><br><span class="line"><span class="comment">// Function.prototype =&gt; Function.prototype.__proto__ = Object.prototype =&gt; Object.prototype.__proto__ = null</span></span><br><span class="line"><span class="comment">//底下的运行结果都是true</span></span><br><span class="line"><span class="built_in">console</span>.dir(Foo.__proto__ == <span class="built_in">Function</span>.prototype);</span><br><span class="line"><span class="built_in">console</span>.dir(Foo.__proto__.__proto__ == <span class="built_in">Object</span>.prototype);</span><br><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">Function</span>.prototype.__proto__ == <span class="built_in">Object</span>.prototype)</span><br><span class="line"><span class="built_in">console</span>.dir(Foo.prototype == foo.__proto__);</span><br><span class="line"><span class="built_in">console</span>.dir(Foo.__proto__.__proto__ == obj.__proto__);</span><br><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">Function</span>.prototype == <span class="built_in">Object</span>.__proto__)</span><br><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">Array</span>.__proto__ == <span class="built_in">Function</span>.prototype);</span><br><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">Function</span>.__proto__ == <span class="built_in">Function</span>.prototype);</span><br><span class="line"><span class="built_in">console</span>.dir(foo.__proto__.__proto__ == <span class="built_in">Object</span>.prototype)</span><br></pre></td></tr></table></figure>
+<h3 id="附带几个面试题与君共赏"><a href="#附带几个面试题与君共赏" class="headerlink" title="附带几个面试题与君共赏"></a>附带几个面试题与君共赏</h3><p>题目一<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.prototype.a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F()</span><br></pre></td></tr></table></figure></p>
+<p>方法f只能调用a，不能到用b，F可以调用a方法和b方法，因为<code>f.__proto__</code>并没有经过<code>Function.prototype</code>这条链路</p>
+<p> 题目二</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.a = <span class="string">'Parent'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Tom</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.a = <span class="string">'Tom'</span></span><br><span class="line">&#125;</span><br><span class="line">Parent.__proto__.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">&#125;</span><br><span class="line">Parent.print()</span><br><span class="line">Tom.print()</span><br><span class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Parent()</span><br><span class="line">child.print()</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// Uncaught TypeError: child.print is not a function</span></span><br></pre></td></tr></table></figure>
+<p><code>Parent</code>和<code>Tom</code>都是<code>Function</code>的实例，因此相当于在<code>Function.prototype</code>上面挂载了一个<code>print</code>方法，因此<code>Parent.print()</code>可以调用到这个方法，但是没有返回值，一个原因是 <code>Parent</code>方法没有执行，一个是因为this此时指向的是<code>Parent</code>，<code>Parent</code>方法上没有<code>a</code>属性，而child本身是基于构造函数创建了一个对象，<code>child.__proto__.__proto__ === Object.prototype</code>，因此在其原型链上找不到<code>print</code>方法。</p>
 
       
     </div>
@@ -393,15 +387,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2020/05/09/vue虚拟DOM和diff算法及实现/" rel="next" title="vue虚拟DOM和diff算法及实现">
+                <i class="fa fa-chevron-left"></i> vue虚拟DOM和diff算法及实现
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/21/js作用域以及闭包/" rel="prev" title="js作用域以及闭包">
-                js作用域以及闭包 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -535,7 +529,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字var的用法"><span class="nav-number">1.</span> <span class="nav-text">关键字var的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">2.</span> <span class="nav-text">数据类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#附带几个面试题与君共赏"><span class="nav-number">1.</span> <span class="nav-text">附带几个面试题与君共赏</span></a></li></ol></div>
             
 
           </div>
